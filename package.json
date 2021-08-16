@@ -1,0 +1,19 @@
+{
+  "name": "all-drag-plugin",
+  "version": "1.0.0",
+  "description": "plugin for drag every element free or drag element",
+  "main": "js/controller.js",
+  "scripts": {
+    "start": "parcel main.html"
+  },
+  "keywords": [
+    "plugin",
+    "drag"
+  ],
+  "author": "behnam rhp",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-rc.0"
+  }
+}

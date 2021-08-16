@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all drag plugin</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="all_drag_style.css"/>
+    <script defer type="module" src="js/all_drag.js"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        html{
+            font-size: 10px;
+        }
+
+        .drag_elem{
+            width:5rem;
+            height: 50rem;
+            background: aquamarine;
+            border-radius: 1rem;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .button_to_slide{
+            position: absolute;
+            bottom: 0;
+            background: #c1c1c1;
+            color: #101010;
+            text-decoration: none;
+            font-size: 1.3rem;
+            padding: 1rem;
+            border-radius: .5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="drag_elem" id="drag_el"></div>
+<a href="javascript:void(0)" class="button_to_slide" >button</a>
+
+<script type="module" defer>
+    import {all_drag_plugin} from "./js/all_drag.js";
+    let options = {
+        drag_cursor:'grabbing',
+        drag_type:{
+            type:'free',
+            freeDrag:{
+                drag_place:'self',
+                panel_side: 'top',
+                hover_cursor:'grab',
+                drag_style:'elevate'
+            }
+        },
+        panel: {
+            panel_height:'20',
+            panel_color: '#2998a7',
+        },
+        revert : false
+    }
+    all_drag_plugin.create('drag_el',options)
+</script>
+</body>
+</html>

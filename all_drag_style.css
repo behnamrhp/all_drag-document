@@ -1,0 +1,17 @@
+.drag_elem {
+
+}
+
+.all_drag_panel {
+    width: 100%;
+    position: absolute;
+}
+
+.all_drag_free_drag {
+    /*transition: all .2s;*/
+    position: absolute !important;
+}
+
+.all_drag_animate:hover{
+    transition: all .2s;
+}
