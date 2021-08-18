@@ -29,11 +29,43 @@ class freeDrag extends parent {
 
     }
 
+    containerLimitX(targetElem, XPose ){
+
+        let container = this._config.drag_type.freeDrag.allowedDistrict;
+
+        if (!document.querySelector(`#${container}`) ){
+            console.error('couldn\'t find any container please choose correct container id')
+            return false;
+        }
+
+        container  = document.querySelector(`#${container}`);
+
+        if (container.getBoundingClientRect().left > +XPose ) return false;
 
 
 
-    dragStop() {
+        return container.getBoundingClientRect().width + container.getBoundingClientRect().left >= +XPose;
+
+
     }
+
+    containerLimitY(targetElement,YPose){
+        let container = this._config.drag_type.freeDrag.allowedDistrict;
+
+        if (!document.querySelector(`#${container}`) ){
+            console.error('couldn\'t find any container please choose correct container id')
+            return false;
+        }
+
+        container  = document.querySelector(`#${container}`);
+
+        if (container.getBoundingClientRect().top > +YPose ) return false;
+
+        return container.getBoundingClientRect().top + container.getBoundingClientRect().height >= +YPose;
+
+
+    }
+
 }
 
 export default new freeDrag();

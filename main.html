@@ -38,11 +38,21 @@
 
         }
 
+        #cont{
+            width: 50vw;
+            height: 90vh;
+            background: aquamarine;
+            position: relative;
+            left: 5rem;
+        }
     </style>
 </head>
-<body>
+<body id="_body">
 
-<div class="drag_elem" id="drag_el"></div>
+<div id="cont">
+    <div class="drag_elem" id="drag_el"></div>
+</div>
+
 <a href="javascript:void(0)" class="button_to_slide" >button</a>
 
 <script type="module" defer>
@@ -50,12 +60,13 @@
     let options = {
         drag_cursor:'grabbing',
         drag_type:{
-            type:'free',
+            type:'slide',
             freeDrag:{
-                drag_place:'self',
+                drag_place:'panel',
                 panel_side: 'top',
                 hover_cursor:'grab',
-                drag_style:'elevate'
+                drag_style:'elevate',
+                allowedDistrict: 'cont'
             }
         },
         panel: {

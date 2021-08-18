@@ -2,16 +2,18 @@
 
 }
 
+body{
+    height: 100vh;
+}
 .all_drag_panel {
     width: 100%;
     position: absolute;
 }
 
 .all_drag_free_drag {
-    /*transition: all .2s;*/
     position: absolute !important;
 }
 
-.all_drag_animate:hover{
-    transition: all .2s;
+.all_drag_slide_drag {
+    position: fixed !important;
 }

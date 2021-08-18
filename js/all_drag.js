@@ -2,6 +2,7 @@ import {config} from "./config.js";
 import free from './views/freeDrag.js';
 import slide from './views/slideDrag.js';
 import freeDrag from "./views/freeDrag.js";
+import slideDrag from "./views/slideDrag.js";
 
 class all_drag {
     _elem;
@@ -56,8 +57,6 @@ class all_drag {
         //set element in view
         freeDrag._elem = this._elem;
 
-        //check and add panel
-
         //set init element styles
         freeDrag.initElemStyle();
 
@@ -88,7 +87,31 @@ class all_drag {
      * @return control slide drag functionality
      */
     controlSlideDrag() {
+        //set free drag configs
+        this._config = this._setSlideDragOptions(this._config);
 
+        //set free drag view config
+        slideDrag._config = this._config;
+
+        //set element in view
+        slideDrag._elem = this._elem;
+
+        //init elem style
+        slideDrag.initElemStyle();
+
+        //set elem position
+        slideDrag.initElementPosition();
+
+        //add panel
+        slideDrag.addPanel();
+
+        //setHideMode
+        slideDrag.hideMode();
+
+        //set function for click to open slide
+
+
+        //drag slide
     }
 
     /**
@@ -125,6 +148,9 @@ class all_drag {
 
         //check panel height
         if (!usedConfig.panel.panel_radius) usedConfig.panel.panel_radius = config.panel.panel_radius;
+
+        //check panel hide boolean
+        if (!usedConfig.panel.panel_hide) usedConfig.panel.panel_hide = config.panel.panel_hide;
 
         return usedConfig;
 
@@ -171,24 +197,28 @@ class all_drag {
         return usedConfig
     }
 
-    // _setSlideDragOptions(usedConf,customConf){
-    //
-    //     //set hover cursor option
-    //     if (customConf.drag_type.type === 'free' && customConf.drag_type.freeDrag && customConf.drag_type.freeDrag.hover_cursor) {
-    //         usedConf.drag_type.freeDrag.hover_cursor = customConf.drag_type.freeDrag.hover_cursor;
-    //     }
-    //
-    //     //set drag place option
-    //     if (customConf.drag_type.type === 'free' && customConf.drag_type.freeDrag && customConf.drag_type.freeDrag.drag_place) {
-    //         usedConf.drag_type.freeDrag.drag_place = customConf.drag_type.freeDrag.drag_place;
-    //     }
-    //
-    //     //set drag place option
-    //     if (customConf.drag_type.type === 'free' && customConf.drag_type.freeDrag && customConf.drag_type.freeDrag.panel) {
-    //         usedConf.drag_type.freeDrag.panel = customConf.drag_type.freeDrag.panel;
-    //     }
-    //     return usedConf
-    // }
+    _setSlideDragOptions(usedConf) {
+        //check there is no slide drag config
+        if (!usedConf.drag_type.slideDrag) usedConf.drag_type.slideDrag = config.drag_type.slideDrag;
+
+
+        //check direction drag style
+        if (!usedConf.drag_type.slideDrag.direction) usedConf.drag_type.slideDrag.direction = config.drag_type.slideDrag.direction;
+
+        //check close percent elem div
+        if (!usedConf.drag_type.slideDrag.closePercent) usedConf.drag_type.slideDrag.closePercent = config.drag_type.slideDrag.closePercent;
+
+        //check default openPercent elem div
+        if (!usedConf.drag_type.slideDrag.openPercent) usedConf.drag_type.slideDrag.openPercent = config.drag_type.slideDrag.openPercent;
+
+        //check default clickToOpen elem div
+        if (!usedConf.drag_type.slideDrag.clickToOpen) usedConf.drag_type.slideDrag.clickToOpen = config.drag_type.slideDrag.clickToOpen;
+
+        //check hideStyle elem(panel/hide)
+        if (!usedConf.drag_type.slideDrag.hideStyle) usedConf.drag_type.slideDrag.hideStyle = config.drag_type.slideDrag.hideStyle;
+
+        return usedConf
+    }
 
 
     /**
@@ -217,7 +247,6 @@ class all_drag {
         if (!freeDrag._checkClickPressed) return;
         if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount <= this._config.draggableAllowedNumber) {
 
-
             if (this._config.drag_cursor) {
                 freeDrag.setDraggingCursor(this._config.drag_cursor);
             }
@@ -235,19 +264,34 @@ class all_drag {
             if (this._config.drag_type.freeDrag.drag_place !== 'panel') targetElem = this._elem
             else targetElem = this._elem.parentElement
 
+
             //set animate of dragging element
             if (this._config.drag_type.freeDrag.drag_style === 'elevate') freeDrag.freeDragAnimation(targetElem);
 
-            targetElem.style.top = (targetElem.offsetTop - topMouseMove) + "px"
-            targetElem.style.left = (targetElem.offsetLeft - leftMouseMove) + "px"
+            //check has container limit to move
+            let checkLimitContainerXAllowed = true
+            let checkLimitContainerYAllowed = true
+
+            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerXAllowed = freeDrag.containerLimitX(targetElem, e.x);
+
+            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerYAllowed = freeDrag.containerLimitY(targetElem, e.y);
+
+            if (checkLimitContainerXAllowed) targetElem.style.left = (targetElem.offsetLeft - leftMouseMove) + "px";
+
+            if (checkLimitContainerYAllowed) targetElem.style.top = (targetElem.offsetTop - topMouseMove) + "px"
+
 
             //increase drag done count
             this._dragDoneCount++;
+
         }
 
     }
 
 
+    /**
+     * @return stop moving _elem in free drag type
+     */
     controlFreeDragStopHandler() {
         if (!freeDrag._checkClickPressed) return;
 

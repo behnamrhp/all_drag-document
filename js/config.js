@@ -13,10 +13,8 @@ export let config = {
             allowedDistrict:false
         },
         slideDrag: {
-            direction: 'toLeft',
+            direction: 'left',
             closePercent: 50,
-            closeStyle: 'default',
-            slide_type: 'selfDrag',
             openPercent: 70,
             clickToOpen: false,
             hideStyle: 'panel'
@@ -29,7 +27,8 @@ export let config = {
         activate: true,
         panel_color: '#656565',
         panel_height: '15',
-        panel_radius: '10'
+        panel_radius: '10',
+        panel_hide:false
     }
 
 }
