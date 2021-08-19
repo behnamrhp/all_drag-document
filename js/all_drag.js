@@ -63,12 +63,12 @@ class all_drag {
         //check and add panel
         if (this._config.drag_type.freeDrag.drag_place === 'panel') {
             //generate panel
-            this._elem = freeDrag._generatePanel();
+            this._elem = freeDrag.generatePanel();
 
         }
 
         //set hover cursor
-        freeDrag.addHoverHandler(freeDrag.setDraggingCursor(this._config.drag_type.freeDrag.hover_cursor));
+        freeDrag.addHoverHandler(freeDrag.setDraggingCursor(this._config.panel.hover_cursor));
 
 
         //start function
@@ -100,18 +100,34 @@ class all_drag {
         slideDrag.initElemStyle();
 
         //set elem position
-        slideDrag.initElementPosition();
+        slideDrag.initElementPosition(this._elem);
 
         //add panel
-        slideDrag.addPanel();
+        slideDrag.generatePanel();
 
         //setHideMode
-        slideDrag.hideMode();
+        if (this._config.drag_type.slideDrag.hideStyle === 'hide') slideDrag.hideMode();
+
+
+
+        //set panel hover cursor
+        slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
+
+        //set start slider size
+        slideDrag._first_elem_width = slideDrag._elem.parentElement.getBoundingClientRect().width;
+        slideDrag._first_elem_height = slideDrag._elem.parentElement.getBoundingClientRect().height;
 
         //set function for click to open slide
+        // slideDrag.addClickToToggle() todo: should update to match with drag functionality
 
+        //start slide drag
+        slideDrag.addStartSlideDragEvent(this.controlStartSlideDragHandler)
 
-        //drag slide
+        //move slide drag
+        slideDrag.addMoveSlideDragEvent(this.controlMoveSlidDragHandler)
+
+        //stop slide drag
+        slideDrag.addStopSlideDragEvent(this.controlStopSlideDragHandler)
     }
 
     /**
@@ -152,6 +168,10 @@ class all_drag {
         //check panel hide boolean
         if (!usedConfig.panel.panel_hide) usedConfig.panel.panel_hide = config.panel.panel_hide;
 
+        //check hover cursor
+        if (!usedConfig.panel.hover_cursor) usedConfig.panel.hover_cursor = config.panel.hover_cursor;
+
+
         return usedConfig;
 
     }
@@ -166,8 +186,6 @@ class all_drag {
         //check there is no free drag config
         if (!usedConfig.drag_type.freeDrag) usedConfig.drag_type.freeDrag = config.drag_type.freeDrag;
 
-        //check hover cursor
-        if (!usedConfig.drag_type.freeDrag.hover_cursor) usedConfig.drag_type.freeDrag.hover_cursor = config.drag_type.freeDrag.hover_cursor;
 
         //check drag place
         if (!usedConfig.drag_type.freeDrag.drag_place) usedConfig.drag_type.freeDrag.drag_place = config.drag_type.freeDrag.drag_place;
@@ -216,6 +234,9 @@ class all_drag {
 
         //check hideStyle elem(panel/hide)
         if (!usedConf.drag_type.slideDrag.hideStyle) usedConf.drag_type.slideDrag.hideStyle = config.drag_type.slideDrag.hideStyle;
+
+         //check hideStyle elem(panel/hide)
+        if (!usedConf.drag_type.slideDrag.transitionDuration) usedConf.drag_type.slideDrag.transitionDuration = config.drag_type.slideDrag.transitionDuration;
 
         return usedConf
     }
@@ -281,8 +302,7 @@ class all_drag {
             if (checkLimitContainerYAllowed) targetElem.style.top = (targetElem.offsetTop - topMouseMove) + "px"
 
 
-            //increase drag done count
-            this._dragDoneCount++;
+
 
         }
 
@@ -307,7 +327,60 @@ class all_drag {
 
         if (this._config.revert) freeDrag.revert(targetElem);
         //hover cursor activate
-        freeDrag.addHoverHandler(freeDrag.setDraggingCursor(this._config.drag_type.freeDrag.hover_cursor));
+        freeDrag.addHoverHandler(freeDrag.setDraggingCursor(this._config.panel.hover_cursor));
+
+        //increase drag done count
+        this._dragDoneCount++;
+    }
+
+
+    /**
+     * @return set check to start variable to true
+     */
+    controlStartSlideDragHandler(){
+
+        slideDrag._check_allowed_slide_move = true;
+        [slideDrag._startPose.left, slideDrag._startPose.top] = [slideDrag._elem.offsetLeft , slideDrag._elem.offsetTop]
+
+
+    }
+
+    /**
+     * @return main functionality of slide drag
+     */
+    controlMoveSlidDragHandler(e){
+        if (!slideDrag._check_allowed_slide_move) return;
+
+        //draggable Allowed number
+        if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount <= this._config.draggableAllowedNumber) {
+
+            //drag cursor
+            if (this._config.drag_cursor) {
+                slideDrag.setDraggingCursor(this._config.drag_cursor);
+            }
+
+            //drag functionality
+            slideDrag.setPositionOnDrag.call(this, e)
+
+        }
+    }
+
+    /**
+     * @return set check slide drag variable to false
+     */
+    controlStopSlideDragHandler(){
+        if (!slideDrag._check_allowed_slide_move) return;
+
+            slideDrag._check_allowed_slide_move = false;
+
+            //revert
+
+            //hover cursor activate
+            slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
+            
+            this._dragDoneCount++
+
+
     }
 }
 

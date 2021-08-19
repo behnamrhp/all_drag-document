@@ -8,6 +8,7 @@ body{
 .all_drag_panel {
     width: 100%;
     position: absolute;
+    user-select: none;
 }
 
 .all_drag_free_drag {
@@ -16,4 +17,5 @@ body{
 
 .all_drag_slide_drag {
     position: fixed !important;
+    z-index: 99999;
 }

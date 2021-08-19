@@ -2,7 +2,6 @@ export let config = {
     drag_type: {
         type: 'free',
         freeDrag: {
-            hover_cursor: 'auto',
             drag_place: 'self',
             panel_side: 'top',
             drag_style: 'flat',
@@ -15,8 +14,8 @@ export let config = {
         slideDrag: {
             direction: 'left',
             closePercent: 50,
-            openPercent: 70,
             clickToOpen: false,
+            transitionDuration: '.2',
             hideStyle: 'panel'
         }
     },
@@ -24,6 +23,7 @@ export let config = {
     revert: false,
     draggableAllowedNumber: 0,
     panel: {
+        hover_cursor: 'auto',
         activate: true,
         panel_color: '#656565',
         panel_height: '15',

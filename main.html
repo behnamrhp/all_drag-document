@@ -21,11 +21,11 @@
             width:5rem;
             height: 50rem;
             background: aquamarine;
-            border-radius: 1rem;
+            /*border-radius: 1rem;*/
             box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
         }
 
-        .button_to_slide{
+        #button_to_slide{
             position: absolute;
             bottom: 0;
             background: #c1c1c1;
@@ -47,13 +47,13 @@
         }
     </style>
 </head>
-<body id="_body">
+<body>
 
 <div id="cont">
     <div class="drag_elem" id="drag_el"></div>
 </div>
 
-<a href="javascript:void(0)" class="button_to_slide" >button</a>
+<a href="javascript:void(0)" id="button_to_slide" >button</a>
 
 <script type="module" defer>
     import {all_drag_plugin} from "./js/all_drag.js";
@@ -64,14 +64,20 @@
             freeDrag:{
                 drag_place:'panel',
                 panel_side: 'top',
-                hover_cursor:'grab',
                 drag_style:'elevate',
                 allowedDistrict: 'cont'
+            },
+            slideDrag : {
+                direction:'top',
+                transitionDuration: '.2',
+                clickToOpen:'button_to_slide'
             }
+
         },
         panel: {
+            hover_cursor:'grab',
             panel_height:'20',
-            panel_color: '#2998a7',
+            panel_color: '#adb8ba',
         },
         revert : false
     }

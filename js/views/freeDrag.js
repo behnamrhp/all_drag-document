@@ -18,10 +18,6 @@ class freeDrag extends parent {
         document.addEventListener('mouseup', handler)
     }
 
-    addHoverHandler(handler) {
-        this._elem.addEventListener('mouseenter', handler)
-    }
-
     freeDragAnimation(targetElem,style = 'start'){
 
         targetElem.style.transform = `${style === 'start' ? `scale(${this._config.drag_type.freeDrag.drag_scale})` :'scale(1)'}`;

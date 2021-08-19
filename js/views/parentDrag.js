@@ -4,6 +4,7 @@ export default class mainDrag {
     _checkClickPressed = false;
     _startPose = {};
     _Pose = {};
+    _dragDoneCount = 0;
 
 
     setDraggingCursor(cursor) {
@@ -20,12 +21,16 @@ export default class mainDrag {
         else this._elem.classList.add('all_drag_slide_drag')
     }
 
+    addHoverHandler(handler) {
+        this._elem.addEventListener('mouseenter', handler)
+    }
+
     /**
      *
      * @return {_elem} set panel to main element to drag
      * @private
      */
-    _generatePanel() {
+    generatePanel() {
         const html = `<div class="all_drag_panel"><span class="all_drag_panel-icon"></span>&nbsp;</div>`;
         try {
             if (!this._checkElementHasClosingTag(this._elem.tagName)) throw new Error(`please choose element that has closing tag for panel`)
@@ -38,7 +43,9 @@ export default class mainDrag {
             this._elem.querySelector('.all_drag_panel').style.background = this._config.panel.panel_color;
 
             //add panel position and radius
-            this._setPanelPositionAndRadius();
+            if (this._config.drag_type.type === 'free') this._setFreePanelPositionAndRadius();
+            if (this._config.drag_type.type === 'slide') this._setSlidePanelPositionAndRadius();
+
 
             //set panel to main element to drag
             this._elem = this._elem.querySelector('.all_drag_panel');
@@ -72,7 +79,7 @@ export default class mainDrag {
      * @private
      * @return set panel position and panel radius if panel exist
      */
-    _setPanelPositionAndRadius(){
+    _setFreePanelPositionAndRadius(){
         const radius = this._config.panel.panel_radius;
 
         if (this._config.drag_type.freeDrag.panel_side === 'top') {
@@ -106,6 +113,49 @@ export default class mainDrag {
             this._elem.querySelector('.all_drag_panel').style.borderRadius = ` ${radius}px 0 0 ${radius}px`;
         }
 
+    }
+
+    /**
+     * @return set panel position and panel radius for slide drag
+     * @private
+     */
+    _setSlidePanelPositionAndRadius(){
+        const radius = this._config.panel.panel_radius;
+        const panel_settings = this._config.panel
+
+
+        if (this._config.drag_type.slideDrag.direction === 'bottom'){
+            this._elem.querySelector('.all_drag_panel').style.top = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.left = '0';
+
+            //set radius
+            this._elem.querySelector('.all_drag_panel').style.borderRadius = `${radius}px ${radius}px 0 0`;
+        }
+
+        if (this._config.drag_type.slideDrag.direction === 'top') {
+            this._elem.querySelector('.all_drag_panel').style.bottom = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.left = '0';
+
+            //set radius
+            this._elem.querySelector('.all_drag_panel').style.borderRadius = ` 0 0 ${radius}px ${radius}px `;
+        }
+
+        if (this._config.drag_type.slideDrag.direction === 'right') {
+            this._elem.querySelector('.all_drag_panel').style.left = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.width = panel_settings.panel_height + 'px';
+            this._elem.querySelector('.all_drag_panel').style.height = '100%';
+
+            //set radius
+            this._elem.querySelector('.all_drag_panel').style.borderRadius = `${radius}px 0 0 ${radius}px`;
+        }
+        if (this._config.drag_type.slideDrag.direction === 'left') {
+            this._elem.querySelector('.all_drag_panel').style.right = `-${panel_settings.panel_height}px`;;
+            this._elem.querySelector('.all_drag_panel').style.width = panel_settings.panel_height + 'px';
+            this._elem.querySelector('.all_drag_panel').style.height = '100%';
+
+            //set radius
+            this._elem.querySelector('.all_drag_panel').style.borderRadius = `0 ${radius}px   ${radius}px 0`;
+        }
     }
 
 }
