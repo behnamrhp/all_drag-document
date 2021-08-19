@@ -86,12 +86,13 @@ class slideDrag extends parent {
         //check reverse  sizing to calc browser size
         const reverseDir = (direction === 'right' || direction === 'bottom');
         //set direction (rtl/ltr)
-        const setEventMove = reverseDir?  elemFirstDirSize - e[eventDir] : elemFirstDirSize + e[eventDir]
+        const setEventMove = reverseDir?   - e[eventDir] :  + e[eventDir]
 
         //set final distance
         const finalDist = (reverseDir?document.documentElement[clientBrowserDir] : 0) + setEventMove;
 
         //functionality
+        this._elem.parentElement.style[direction] = `${0}px`;
         this._elem.parentElement.style[curElemDir] =  finalDist + 'px';
     }
 }

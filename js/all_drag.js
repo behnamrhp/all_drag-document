@@ -118,7 +118,7 @@ class all_drag {
         slideDrag._first_elem_height = slideDrag._elem.parentElement.getBoundingClientRect().height;
 
         //set function for click to open slide
-        // slideDrag.addClickToToggle() todo: should update to match with drag functionality
+        slideDrag.addClickToToggle() //todo: should update to match with drag functionality
 
         //start slide drag
         slideDrag.addStartSlideDragEvent(this.controlStartSlideDragHandler)
@@ -377,7 +377,9 @@ class all_drag {
 
             //hover cursor activate
             slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
-            
+
+            slideDrag._check_slide_open = true;
+
             this._dragDoneCount++
 
 
