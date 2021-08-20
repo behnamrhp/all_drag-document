@@ -362,7 +362,7 @@ class all_drag {
 
             //drag cursor
             if (this._config.drag_cursor) {
-                slideDrag.setDraggingCursor(this._config.drag_cursor);
+                slideDrag.setDraggingCursor(this._config.drag_cursor, true);
             }
 
             //drag functionality
@@ -382,7 +382,7 @@ class all_drag {
 
 
             //hover cursor activate
-            slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
+            slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor,false));
 
             slideDrag._check_slide_open = true;
 
