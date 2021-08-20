@@ -18,7 +18,7 @@
         }
 
         .drag_elem{
-            width:5rem;
+            width:20rem;
             height: 50rem;
             background: aquamarine;
             /*border-radius: 1rem;*/
@@ -68,12 +68,16 @@
                 allowedDistrict: 'cont'
             },
             slideDrag : {
-                direction:'right',
+                direction:'bottom',
                 transitionDuration: '.2',
-                clickToOpen:'button_to_slide'
+                clickToOpen:'button_to_slide',
+                resizeToDefaultOnHide : true,
+                closePercent: 70,
+                percentBasis: 'self'
             }
 
         },
+        draggableAllowedNumber: 0,
         panel: {
             hover_cursor:'grab',
             panel_height:'20',

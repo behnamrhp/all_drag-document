@@ -14,9 +14,11 @@ export let config = {
         slideDrag: {
             direction: 'left',
             closePercent: 50,
+            percentBasis: 'self',
             clickToOpen: false,
             transitionDuration: '.2',
-            hideStyle: 'panel'
+            hideStyle: 'panel',
+            resizeToDefaultOnHide: false
         }
     },
     drag_cursor: false,

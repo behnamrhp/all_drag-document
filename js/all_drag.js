@@ -118,7 +118,7 @@ class all_drag {
         slideDrag._first_elem_height = slideDrag._elem.parentElement.getBoundingClientRect().height;
 
         //set function for click to open slide
-        slideDrag.addClickToToggle() //todo: should update to match with drag functionality
+        slideDrag.addClickToToggle()
 
         //start slide drag
         slideDrag.addStartSlideDragEvent(this.controlStartSlideDragHandler)
@@ -238,6 +238,12 @@ class all_drag {
          //check hideStyle elem(panel/hide)
         if (!usedConf.drag_type.slideDrag.transitionDuration) usedConf.drag_type.slideDrag.transitionDuration = config.drag_type.slideDrag.transitionDuration;
 
+        //check resize to default when hide
+        if (!usedConf.drag_type.slideDrag.resizeToDefaultOnHide) usedConf.drag_type.slideDrag.resizeToDefaultOnHide = config.drag_type.slideDrag.resizeToDefaultOnHide;
+
+        //check percent basis for close on stop handler
+        if (!usedConf.drag_type.slideDrag.percentBasis) usedConf.drag_type.slideDrag.percentBasis = config.drag_type.slideDrag.percentBasis;
+
         return usedConf
     }
 
@@ -266,7 +272,7 @@ class all_drag {
     controlFreeDragMoveHandler(e) {
 
         if (!freeDrag._checkClickPressed) return;
-        if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount <= this._config.draggableAllowedNumber) {
+        if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount < this._config.draggableAllowedNumber) {
 
             if (this._config.drag_cursor) {
                 freeDrag.setDraggingCursor(this._config.drag_cursor);
@@ -352,7 +358,7 @@ class all_drag {
         if (!slideDrag._check_allowed_slide_move) return;
 
         //draggable Allowed number
-        if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount <= this._config.draggableAllowedNumber) {
+        if (this._config.draggableAllowedNumber === 0 || this._dragDoneCount < this._config.draggableAllowedNumber) {
 
             //drag cursor
             if (this._config.drag_cursor) {
@@ -368,22 +374,42 @@ class all_drag {
     /**
      * @return set check slide drag variable to false
      */
-    controlStopSlideDragHandler(){
+    controlStopSlideDragHandler(e){
         if (!slideDrag._check_allowed_slide_move) return;
 
-            slideDrag._check_allowed_slide_move = false;
 
-            //revert
+        slideDrag._check_allowed_slide_move = false;
+
 
             //hover cursor activate
             slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
 
             slideDrag._check_slide_open = true;
 
+
+        //revert
+        if (this._config.revert){
+            slideDrag._addAnimation(this._elem.parentElement)
+            slideDrag.initElementPosition(this._elem.parentElement)
+            slideDrag._check_slide_open = false;
+        }
+
+        //close percentage
+        if (this._config.drag_type.slideDrag.closePercent){
+            const checkToClose = slideDrag.closePercentage([e.clientX, e.clientY]);
+
+            if (checkToClose){
+                slideDrag._addAnimation(this._elem.parentElement)
+                slideDrag.initElementPosition(this._elem.parentElement)
+                slideDrag._check_slide_open = false;
+            }
+        }
+
+
             this._dragDoneCount++
 
-
     }
+
 }
 
 export const all_drag_plugin = new all_drag();
