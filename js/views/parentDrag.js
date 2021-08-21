@@ -7,6 +7,7 @@ export default class mainDrag {
     _dragDoneCount = 0;
 
 
+
     setDraggingCursor(cursor,checkMove = false) {
         this._elem.style.cursor = (cursor.includes('png') || cursor.includes('png') || cursor.includes('image')) ? `url(${cursor}),pointer` : `${cursor}`
          document.body.style.cursor =checkMove? ((cursor.includes('png') || cursor.includes('png') || cursor.includes('image')) ? `url(${cursor}),pointer` : `${cursor}`):'default'

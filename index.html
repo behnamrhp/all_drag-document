@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="all_drag_style.css"/>
-    <script defer type="module" src="js/all_drag.js"></script>
+    <script defer type="module"  src="js/all_drag.js"></script>
 
     <style>
         *{
@@ -56,7 +56,7 @@
 <a href="javascript:void(0)" id="button_to_slide" >button</a>
 
 <script type="module" defer>
-    import {all_drag_plugin} from "./js/all_drag.js";
+    import {ALL_DRAG} from "./js/all_drag.js";
     let options = {
         drag_cursor:'grabbing',
         drag_type:{
@@ -85,7 +85,11 @@
         },
         revert : false
     }
-    all_drag_plugin.create('drag_el',options)
+    ALL_DRAG.create('drag_el',options);
+
+    document.getElementById('drag_el').addEventListener('allSlideDragStop',function(e){
+        console.log(e);
+    })
 </script>
 </body>
 </html>

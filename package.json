@@ -2,9 +2,10 @@
   "name": "all-drag-plugin",
   "version": "1.0.0",
   "description": "plugin for drag every element free or drag element",
-  "main": "js/controller.js",
+  "default": "index.html",
   "scripts": {
-    "start": "parcel main.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "keywords": [
     "plugin",
