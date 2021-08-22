@@ -14,7 +14,16 @@ export default class mainDrag {
 
     }
 
+    _addAnimation(targetElem) {
+        targetElem.style.transition = `all ${this._config.transitionDuration}s`;
+
+        setTimeout(() => {
+            targetElem.style.transition = 'unset'
+        }, (this._config.transitionDuration * 1000) + 200)
+    }
+
     revert(targetElem){
+        this._addAnimation(targetElem);
         targetElem.style.top = this._startPose.top + "px"
         targetElem.style.left = this._startPose.left + "px"
     }
@@ -49,9 +58,11 @@ export default class mainDrag {
             if (this._config.drag_type.type === 'free') this._setFreePanelPositionAndRadius();
             if (this._config.drag_type.type === 'slide') this._setSlidePanelPositionAndRadius();
 
-
             //set panel to main element to drag
             this._elem = this._elem.querySelector('.all_drag_panel');
+
+
+            if (this._config.panel.panel_hide) this._elem.style.background = 'transparent'
 
             return this._elem
 
@@ -101,6 +112,7 @@ export default class mainDrag {
         }
         if (this._config.drag_type.freeDrag.panel_side === 'right') {
             this._elem.querySelector('.all_drag_panel').style.right = '0';
+            this._elem.querySelector('.all_drag_panel').style.top = '0';
             this._elem.querySelector('.all_drag_panel').style.width = this._config.panel.panel_height + 'px';
             this._elem.querySelector('.all_drag_panel').style.height = '100%';
 
@@ -109,6 +121,7 @@ export default class mainDrag {
         }
         if (this._config.drag_type.freeDrag.panel_side === 'left') {
             this._elem.querySelector('.all_drag_panel').style.left = '0';
+            this._elem.querySelector('.all_drag_panel').style.top = '0';
             this._elem.querySelector('.all_drag_panel').style.width = this._config.panel.panel_height + 'px';
             this._elem.querySelector('.all_drag_panel').style.height = '100%';
 
@@ -128,7 +141,7 @@ export default class mainDrag {
 
 
         if (this._config.drag_type.slideDrag.direction === 'bottom'){
-            this._elem.querySelector('.all_drag_panel').style.top = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.top = `0`;
             this._elem.querySelector('.all_drag_panel').style.left = '0';
 
             //set radius
@@ -136,7 +149,7 @@ export default class mainDrag {
         }
 
         if (this._config.drag_type.slideDrag.direction === 'top') {
-            this._elem.querySelector('.all_drag_panel').style.bottom = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.bottom = `0`;
             this._elem.querySelector('.all_drag_panel').style.left = '0';
 
             //set radius
@@ -144,7 +157,7 @@ export default class mainDrag {
         }
 
         if (this._config.drag_type.slideDrag.direction === 'right') {
-            this._elem.querySelector('.all_drag_panel').style.left = `-${panel_settings.panel_height}px`;
+            this._elem.querySelector('.all_drag_panel').style.left = `0`;
             this._elem.querySelector('.all_drag_panel').style.width = panel_settings.panel_height + 'px';
             this._elem.querySelector('.all_drag_panel').style.height = '100%';
 
@@ -152,7 +165,7 @@ export default class mainDrag {
             this._elem.querySelector('.all_drag_panel').style.borderRadius = `${radius}px 0 0 ${radius}px`;
         }
         if (this._config.drag_type.slideDrag.direction === 'left') {
-            this._elem.querySelector('.all_drag_panel').style.right = `-${panel_settings.panel_height}px`;;
+            this._elem.querySelector('.all_drag_panel').style.right = `0`;
             this._elem.querySelector('.all_drag_panel').style.width = panel_settings.panel_height + 'px';
             this._elem.querySelector('.all_drag_panel').style.height = '100%';
 

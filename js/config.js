@@ -16,17 +16,16 @@ export let config = {
             closePercent: 50,
             percentBasis: 'self',
             clickToOpen: false,
-            transitionDuration: '.2',
             hideStyle: 'panel',
             resizeToDefaultOnHide: false
         }
     },
     drag_cursor: false,
     revert: false,
+    transitionDuration: '.2',
     draggableAllowedNumber: 0,
     panel: {
         hover_cursor: 'auto',
-        activate: true,
         panel_color: '#656565',
         panel_height: '15',
         panel_radius: '10',

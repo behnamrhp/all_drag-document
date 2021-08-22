@@ -50,7 +50,11 @@
 <body>
 
 <div id="cont">
-    <div class="drag_elem" id="drag_el"></div>
+    <div class="drag_elem" id="drag_el">
+        <h1>test</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, commodi corporis debitis eaque facere ipsum labore laborum molestias nihil numquam odio, officia officiis omnis, praesentium quidem reiciendis rem tempora vitae.</p>
+
+    </div>
 </div>
 
 <a href="javascript:void(0)" id="button_to_slide" >button</a>
@@ -68,26 +72,55 @@
                 allowedDistrict: 'cont'
             },
             slideDrag : {
-                direction:'bottom',
-                transitionDuration: '.2',
+                direction:'top',
                 clickToOpen:'button_to_slide',
                 resizeToDefaultOnHide : true,
                 closePercent: 70,
-                percentBasis: 'self'
+                percentBasis: 'browser'
             }
 
         },
-        draggableAllowedNumber: 0,
+        draggableAllowedNumber: 2,
         panel: {
             hover_cursor:'grab',
-            panel_height:'20',
+            panel_height:'30',
             panel_color: '#adb8ba',
+
         },
-        revert : false
+        revert : true,
+        transitionDuration: '.7',
+
     }
     ALL_DRAG.create('drag_el',options);
 
-    document.getElementById('drag_el').addEventListener('allSlideDragStop',function(e){
+    // ALL_DRAG.create('button_to_slide',{
+    //     drag_type: {
+    //         type:'free',
+    //         freeDrag:{
+    //             drag_place: 'panel',
+    //             panel_side: 'top',
+    //             drag_style: 'elevate',
+    //             drag_shadow_color: '#fff',
+    //             drag_shadow_blur: '10',
+    //             drag_shadow_distance:'20',
+    //             allowedDistrict:'cont',
+    //         }
+    //     },
+    //     drag_cursor: 'pointer',
+    //     revert:true,
+    //     transitionDuration: '.5',
+    //     draggableAllowedNumber:2,
+    //     panel: {
+    //         hover_cursor:'move',
+    //         panel_color:'blue',
+    //         panel_height:'20',
+    //         panel_radius:'10',
+    //         panel_hide:true
+    //     }
+    //
+    // })
+
+    document.getElementById('button_to_slide').addEventListener('allFreeDragStop',function(e){
         console.log(e);
     })
 </script>

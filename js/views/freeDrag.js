@@ -25,6 +25,19 @@ class freeDrag extends parent {
 
     }
 
+    setInitDistrictArea(targetEl){
+        let container = this._config.drag_type.freeDrag.allowedDistrict;
+
+        if (!document.querySelector(`#${container}`) ){
+            console.error('couldn\'t find any container please choose correct container id')
+            return false;
+        }
+
+        container  = document.querySelector(`#${container}`);
+        targetEl.style.left = container.getBoundingClientRect().left + 'px';
+        targetEl.style.top = container.getBoundingClientRect().top + 'px';
+    }
+
     containerLimitX(targetElem, XPose ){
 
         let container = this._config.drag_type.freeDrag.allowedDistrict;

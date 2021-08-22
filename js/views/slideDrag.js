@@ -15,18 +15,16 @@ class slideDrag extends parent {
         const direction = this._config.drag_type.slideDrag.direction;
 
         //set styles
-        if (direction === 'left') targetElem.style.left = `-${targetElem.getBoundingClientRect().width}px`;
-        if (direction === 'right') targetElem.style.right = `-${targetElem.getBoundingClientRect().width}px`;
-        if (direction === 'top') targetElem.style.top = `-${targetElem.getBoundingClientRect().height}px`;
-        if (direction === 'bottom') targetElem.style.bottom = `-${targetElem.getBoundingClientRect().height}px`;
+        if (direction === 'left') targetElem.style.left = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
+        if (direction === 'right') targetElem.style.right = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
+        if (direction === 'top') targetElem.style.top = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
+        if (direction === 'bottom') targetElem.style.bottom = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
         this._check_slide_open = false;
 
     }
 
 
-    hideMode() {
-        this._elem.style.background = 'transparent'
-    }
+
 
     addClickToToggle() {
         let elemClick = this._config.drag_type.slideDrag.clickToOpen
@@ -60,13 +58,7 @@ class slideDrag extends parent {
 
     }
 
-    _addAnimation(targetElem) {
-        targetElem.style.transition = `all ${this._config.drag_type.slideDrag.transitionDuration}s`;
 
-        setTimeout(() => {
-            targetElem.style.transition = 'unset'
-        }, (this._config.drag_type.slideDrag.transitionDuration * 1000) + 200)
-    }
 
     addStartSlideDragEvent(handler) {
         this._elem.addEventListener('mousedown', handler)

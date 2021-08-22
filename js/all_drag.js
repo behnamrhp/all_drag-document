@@ -63,11 +63,18 @@ class all_drag {
         freeDrag.initElemStyle();
 
         //check and add panel
+        let targetEl;
         if (this._config.drag_type.freeDrag.drag_place === 'panel') {
             //generate panel
             this._elem = freeDrag.generatePanel();
-
+            targetEl = this._elem.parentElement;
+        }else{
+            targetEl = this._elem
         }
+
+        //init if set allowed district
+        if (this._config.drag_type.freeDrag.allowedDistrict) freeDrag.setInitDistrictArea(targetEl);
+
 
         //set hover cursor
         freeDrag.addHoverHandler(freeDrag.setDraggingCursor(this._config.panel.hover_cursor));
@@ -106,10 +113,6 @@ class all_drag {
 
         //add panel
         slideDrag.generatePanel();
-
-        //setHideMode
-        if (this._config.drag_type.slideDrag.hideStyle === 'hide') slideDrag.hideMode();
-
 
         //set panel hover cursor
         slideDrag.addHoverHandler(slideDrag.setDraggingCursor(this._config.panel.hover_cursor));
@@ -256,10 +259,10 @@ class all_drag {
     controlFreeDragStartHandler(e) {
         e.preventDefault();
 
-        //set start position
-        [freeDrag._startPose.top, freeDrag._startPose.left] = [this._elem.offsetTop, this._elem.offsetLeft];
-        [freeDrag._Pose.top, freeDrag._Pose.left] = [e.clientY, e.clientX];
 
+        //set start position
+        [freeDrag._startPose.top, freeDrag._startPose.left] = [this._elem.getBoundingClientRect().top, this._elem.getBoundingClientRect().left];
+        [freeDrag._Pose.top, freeDrag._Pose.left] = [e.clientY, e.clientX];
         //set click press active
         freeDrag._checkClickPressed = true;
 
@@ -359,7 +362,7 @@ class all_drag {
     controlStartSlideDragHandler(e) {
 
         slideDrag._check_allowed_slide_move = true;
-        [slideDrag._startPose.left, slideDrag._startPose.top] = [slideDrag._elem.offsetLeft, slideDrag._elem.offsetTop]
+        [slideDrag._startPose.left, slideDrag._startPose.top] = [slideDrag._elem.getBoundingClientRect().left, slideDrag._elem.getBoundingClientRect().top]
 
 
         //added start drag event
