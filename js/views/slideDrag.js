@@ -61,15 +61,23 @@ class slideDrag extends parent {
 
 
     addStartSlideDragEvent(handler) {
-        this._elem.addEventListener('mousedown', handler)
+        ['mousedown','touchstart'].forEach(evt=>{
+            this._elem.addEventListener(evt, handler)
+        })
+
     }
 
     addMoveSlideDragEvent(handler) {
-        document.addEventListener('mousemove', handler.bind(this))
+        ['mousemove','touchmove'].forEach(evt=>{
+            document.addEventListener(evt, handler.bind(this))
+        })
+
     }
 
     addStopSlideDragEvent(handler) {
-        document.addEventListener('mouseup', handler.bind(this))
+        ['mouseup','touchend'].forEach(evt=>{
+            document.addEventListener(evt, handler.bind(this))
+        })
     }
 
     setPositionOnDrag(e) {
@@ -83,7 +91,8 @@ class slideDrag extends parent {
         //check reverse  sizing to calc browser size
         const reverseDir = (direction === 'right' || direction === 'bottom');
         //set direction (rtl/ltr)
-        const setEventMove = reverseDir ? -e[eventDir] : +e[eventDir]
+        e = e[eventDir]? e[eventDir] : e.changedTouches[0][eventDir];
+        const setEventMove = reverseDir ? -e : +e
 
         //set final distance
         const finalDist = (reverseDir ? document.documentElement[clientBrowserDir] : 0) + setEventMove;

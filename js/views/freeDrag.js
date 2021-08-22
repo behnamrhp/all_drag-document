@@ -7,15 +7,22 @@ class freeDrag extends parent {
     }
 
     addDragStartHandler(handler) {
-        this._elem.addEventListener('mousedown',handler)
+        ['mousedown','touchstart'].forEach(evt=>{
+            this._elem.addEventListener(evt, handler)
+        })
     }
 
     addDragMoveHandler(handler) {
-        document.addEventListener('mousemove', handler)
+        ['mousemove','touchmove'].forEach(evt=>{
+            document.addEventListener(evt, handler)
+        })
+
     }
 
     addDragStopHandler(handler){
-        document.addEventListener('mouseup', handler)
+        ['mouseup','touchend'].forEach(evt=>{
+            document.addEventListener(evt, handler)
+        })
     }
 
     freeDragAnimation(targetElem,style = 'start'){

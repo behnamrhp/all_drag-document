@@ -6,92 +6,70 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="all_drag_style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <script defer type="module"  src="js/all_drag.js"></script>
 
-    <style>
-        *{
-            box-sizing: border-box;
-        }
-
-        html{
-            font-size: 10px;
-        }
-
-        .drag_elem{
-            width:20rem;
-            height: 50rem;
-            background: aquamarine;
-            /*border-radius: 1rem;*/
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
-        }
-
-        #button_to_slide{
-            position: absolute;
-            bottom: 0;
-            background: #c1c1c1;
-            color: #101010;
-            text-decoration: none;
-            font-size: 1.3rem;
-            padding: 1rem;
-            border-radius: .5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
-        }
-
-        #cont{
-            width: 50vw;
-            height: 90vh;
-            background: aquamarine;
-            position: relative;
-            left: 5rem;
-        }
-    </style>
 </head>
 <body>
-
-<div id="cont">
-    <div class="drag_elem" id="drag_el">
-        <h1>test</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, commodi corporis debitis eaque facere ipsum labore laborum molestias nihil numquam odio, officia officiis omnis, praesentium quidem reiciendis rem tempora vitae.</p>
-
+<div class="totalCont">
+    <div class="intro">
+        <div class="slideAnim"></div>
+        <div class="logo-main">
+            <img src="favicon.png" alt="logo" class="logo-main-img">
+            <h1 class="header-main">all drag plugin</h1>
+        </div>
+        <div class="freeAnim"></div>
+        <img src="grabbing.png" class="mouse">
     </div>
+    <div class="sidebar">&nbsp;</div>
+    <div class="main">&nbsp;</div>
 </div>
 
-<a href="javascript:void(0)" id="button_to_slide" >button</a>
+
+<!--<div id="cont">-->
+<!--    <div class="drag_elem" id="drag_el">-->
+<!--        <h1>test</h1>-->
+<!--        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, commodi corporis debitis eaque facere ipsum labore laborum molestias nihil numquam odio, officia officiis omnis, praesentium quidem reiciendis rem tempora vitae.</p>-->
+
+<!--    </div>-->
+
+<!--</div>-->
+
+<!--<a href="javascript:void(0)" id="button_to_slide" >button</a>-->
 
 <script type="module" defer>
     import {ALL_DRAG} from "./js/all_drag.js";
-    let options = {
-        drag_cursor:'grabbing',
-        drag_type:{
-            type:'slide',
-            freeDrag:{
-                drag_place:'panel',
-                panel_side: 'top',
-                drag_style:'elevate',
-                allowedDistrict: 'cont'
-            },
-            slideDrag : {
-                direction:'top',
-                clickToOpen:'button_to_slide',
-                resizeToDefaultOnHide : true,
-                closePercent: 70,
-                percentBasis: 'browser'
-            }
-
-        },
-        draggableAllowedNumber: 2,
-        panel: {
-            hover_cursor:'grab',
-            panel_height:'30',
-            panel_color: '#adb8ba',
-
-        },
-        revert : true,
-        transitionDuration: '.7',
-
-    }
-    ALL_DRAG.create('drag_el',options);
+    // let options = {
+    //     drag_cursor:'grabbing',
+    //     drag_type:{
+    //         type:'free',
+    //         freeDrag:{
+    //             drag_place:'panel',
+    //             panel_side: 'top',
+    //             drag_style:'elevate',
+    //             allowedDistrict: 'cont'
+    //         },
+    //         slideDrag : {
+    //             direction:'top',
+    //             clickToOpen:'button_to_slide',
+    //             resizeToDefaultOnHide : true,
+    //             closePercent: 70,
+    //             percentBasis: 'browser'
+    //         }
+    //
+    //     },
+    //     draggableAllowedNumber: 2,
+    //     panel: {
+    //         hover_cursor:'grab',
+    //         panel_height:'30',
+    //         panel_color: '#adb8ba',
+    //
+    //     },
+    //     revert : true,
+    //     transitionDuration: '.7',
+    //
+    // }
+    // ALL_DRAG.create('drag_el',options);
 
     // ALL_DRAG.create('button_to_slide',{
     //     drag_type: {
@@ -120,9 +98,9 @@
     //
     // })
 
-    document.getElementById('button_to_slide').addEventListener('allFreeDragStop',function(e){
-        console.log(e);
-    })
+    // document.getElementById('button_to_slide').addEventListener('allFreeDragStop',function(e){
+    //     console.log(e);
+    // })
 </script>
 </body>
 </html>

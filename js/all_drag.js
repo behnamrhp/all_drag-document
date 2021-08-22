@@ -259,10 +259,13 @@ class all_drag {
     controlFreeDragStartHandler(e) {
         e.preventDefault();
 
+        const  clientY = e.clientY ? e.clientY : e.changedTouches[0].clientY;
+        const  clientX = e.clientX ? e.clientX : e.changedTouches[0].clientX;
 
-        //set start position
+
+            //set start position
         [freeDrag._startPose.top, freeDrag._startPose.left] = [this._elem.getBoundingClientRect().top, this._elem.getBoundingClientRect().left];
-        [freeDrag._Pose.top, freeDrag._Pose.left] = [e.clientY, e.clientX];
+        [freeDrag._Pose.top, freeDrag._Pose.left] = [clientY, clientX];
         //set click press active
         freeDrag._checkClickPressed = true;
 
@@ -286,13 +289,15 @@ class all_drag {
                 freeDrag.setDraggingCursor(this._config.drag_cursor);
             }
 
+            const  clientY = e.clientY ? e.clientY : e.changedTouches[0].clientY;
+            const  clientX = e.clientX ? e.clientX : e.changedTouches[0].clientX;
 
             //set mouse new pose
-            const topMouseMove = freeDrag._Pose.top - e.clientY;
-            const leftMouseMove = freeDrag._Pose.left - e.clientX;
+            const topMouseMove = freeDrag._Pose.top - clientY;
+            const leftMouseMove = freeDrag._Pose.left - clientX;
 
             //set start position again
-            [freeDrag._Pose.top, freeDrag._Pose.left] = [e.clientY, e.clientX];
+            [freeDrag._Pose.top, freeDrag._Pose.left] = [clientY, clientX];
 
             //set new element pose
             let targetElem;
@@ -307,9 +312,9 @@ class all_drag {
             let checkLimitContainerXAllowed = true
             let checkLimitContainerYAllowed = true
 
-            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerXAllowed = freeDrag.containerLimitX(targetElem, e.x);
+            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerXAllowed = freeDrag.containerLimitX(targetElem, clientX);
 
-            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerYAllowed = freeDrag.containerLimitY(targetElem, e.y);
+            if (this._config.drag_type.freeDrag.allowedDistrict) checkLimitContainerYAllowed = freeDrag.containerLimitY(targetElem, clientY);
 
             if (checkLimitContainerXAllowed) targetElem.style.left = (targetElem.offsetLeft - leftMouseMove) + "px";
 
@@ -360,7 +365,6 @@ class all_drag {
      * @return set check to start variable to true
      */
     controlStartSlideDragHandler(e) {
-
         slideDrag._check_allowed_slide_move = true;
         [slideDrag._startPose.left, slideDrag._startPose.top] = [slideDrag._elem.getBoundingClientRect().left, slideDrag._elem.getBoundingClientRect().top]
 
