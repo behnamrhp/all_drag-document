@@ -5,24 +5,138 @@
     <title>all drag plugin</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
+    <link href="assets/bootstrap/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="assets/bootstrap/bootstrap.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="all_drag_style.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <script defer type="module"  src="js/all_drag.js"></script>
+    <script defer type="module" src="js/all_drag.js"></script>
 
 </head>
 <body>
 <div class="totalCont">
+    <!--start intro  -->
     <div class="intro">
-        <div class="slideAnim"></div>
+        <div class="slideAnim">
+
+
+        </div>
+
         <div class="logo-main">
             <img src="favicon.png" alt="logo" class="logo-main-img">
             <h1 class="header-main">all drag plugin</h1>
         </div>
         <div class="freeAnim"></div>
-        <img src="grabbing.png" class="mouse">
+        <img src="pointer.png" class="mouse">
     </div>
-    <div class="sidebar">&nbsp;</div>
-    <div class="main">&nbsp;</div>
+    <!--end start intro  -->
+
+    <!--start slide-->
+    <div class="sidebar">
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                        Getting started
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                     aria-labelledby="panelsStayOpen-headingOne">
+                    <ul class="ulSideCl">
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">All Drag</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Getting Started</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Installation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                        FreeDrag
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+                     aria-labelledby="panelsStayOpen-headingTwo">
+                    <ul class="ulSideCl">
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Usage</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Options</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Events</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Example</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseThree">
+                        SlideDrag
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+                     aria-labelledby="panelsStayOpen-headingThree">
+                    <ul class="ulSideCl">
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Usage</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Options</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Events</a></li>
+                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Example</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end start slide-->
+
+    <!--start main-->
+    <div class="main">&nbsp;
+
+        <section class="section getting_started">
+            <div class="secondary_section about" id="about">
+                <h3 class="third-head">All Drag</h3>
+                <p class="main-text about_text">Javascript mobile-friendly plugin provided for you to meet all needs of
+                    drag such as slide and free drag</p>
+            </div>
+
+            <div class="secondary_section usage_getting_started" id="getting_started">
+                <h3 class="third-head">Installation</h3>
+                <p class="main-text"></p>
+            </div>
+
+            <div class="secondary_section installation" id="installation">
+                <h3 class="third-head">Usage</h3>
+                <div class="third_section">
+                    <h4 class="fourth_head">cdn</h4>
+                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
+                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
+                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
+                </div>
+
+                <div class="third_section">
+                    <h4 class="fourth_head">download</h4>
+                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
+                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
+                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
+                </div>
+
+                <div class="third_section">
+                    <h4 class="fourth_head">github</h4>
+                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
+                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
+                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+    <!--end start main-->
+
 </div>
 
 
@@ -36,7 +150,18 @@
 <!--</div>-->
 
 <!--<a href="javascript:void(0)" id="button_to_slide" >button</a>-->
-
+<script>
+    document.querySelectorAll('.linkSideCl').forEach(el => {
+        el.addEventListener('click', function () {
+            const activeCl = this.closest('.ulSideCl').querySelector('.active_li')
+            const activeLink = this.closest('.ulSideCl').querySelector('.active_link');
+            if (activeCl) activeCl.classList.remove('active_li');
+            if (activeLink) activeLink.classList.remove('active_link');
+            this.parentElement.classList.add('active_li');
+            this.classList.add('active_link')
+        })
+    })
+</script>
 <script type="module" defer>
     import {ALL_DRAG} from "./js/all_drag.js";
     // let options = {

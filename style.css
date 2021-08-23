@@ -22,12 +22,13 @@
 }
 
 html{
-    font-size: 10px;
+    font-size: 10px !important;
+    scroll-behavior: smooth;
 }
 
 .totalCont{
     display: grid;
-    grid-template-columns:[slide-start] 30vh [slide-end main-start] 1fr;
+    grid-template-columns:[slide-start] 25vw [slide-end main-start] 1fr;
     grid-template-rows:  40rem  auto;
     grid-gap: 1rem 2rem;
 }
@@ -66,17 +67,123 @@ html{
     font-size: 2.5rem;
 }
 
+.third_section{
+    margin-left: 1.5rem;
+}
+.fourth_head{
+    font-size: 2.2rem;
+    margin: .5rem 0;
+}
 .sidebar{
-    background: orangered;
     grid-column: slide-start / slide-end;
+    position: relative;
+    border-right: 1px solid #efefef;
+    padding: 0 1.5rem;
+}
+.accordion-button:focus{
+    border-color: unset !important;
+    box-shadow: unset !important;
+}
+.accordion{
+    position: sticky;
+    top: 2rem;
+    left: 0;
+    font-size: 1.7rem;
+}
+.accordion-item{
+    border: unset !important;
 }
 
+.accordion-button:not(.collapsed) {
+    color: #00e3ff;
+    background-color: unset !important;
+    box-shadow: unset !important;
+    font-weight: 700;
+}
 
+ .accordion-button{
+     font-size: 2rem;
+ }
 .main{
-    background: yellow;
     grid-column: main-start / -1;
+    min-height: 100vh;
 }
 
+.main-text{
+    font-size: 1.5rem;
+}
+
+.secondary_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+.about_text{
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+
+.third-head{
+    font-size: 3.5rem;
+    margin: 1.5rem 0;
+}
+
+
+.liSideCl{
+    list-style: none;
+    position: relative;
+    font-size: 1.2rem;
+    transition: all .3s;
+
+}
+
+.liSideCl::before{
+    content: '';
+    position: absolute;
+    left: -1%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: .2rem;
+    background: #e7e7e7;
+}
+.btn{
+    font-size: 1.5rem !important;
+
+}
+
+.linkSideCl{
+    transition: all .2s !important;
+}
+
+.active_link{
+    color: #00e3ff;
+}
+
+.active_li::before{
+    background: #00e3ff !important;
+}
+.btn-check:focus+.btn, .btn:focus{
+    box-shadow: unset !important;
+}
+
+.accordion-button{
+    position: relative;
+    margin-left: 1rem;
+}
+.accordion-button::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: .7rem;
+    height: .7rem;
+    background: #00e3ff;
+    border-radius: 100%;
+}
 .drag_elem{
     width:20rem;
     height: 50rem;
