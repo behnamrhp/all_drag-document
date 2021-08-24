@@ -1,8 +1,8 @@
-import {config} from "./config.js";
-import free from './views/freeDrag.js';
-import slide from './views/slideDrag.js';
-import freeDrag from "./views/freeDrag.js";
-import slideDrag from "./views/slideDrag.js";
+import {config} from "./js/config.js";
+import free from './js/views/freeDrag.js';
+import slide from './js/views/slideDrag.js';
+import freeDrag from "./js/views/freeDrag.js";
+import slideDrag from "./js/views/slideDrag.js";
 
 class all_drag {
     _elem;

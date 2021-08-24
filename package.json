@@ -11,10 +11,20 @@
     "plugin",
     "drag"
   ],
-  "author": "behnam rhp",
+  "author": "behnamrhp",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0",
     "parcel": "^2.0.0-rc.0"
-  }
+  },
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behnamrhp/all_drag.git"
+  },
+  "bugs": {
+    "url": "https://github.com/behnamrhp/all_drag/issues"
+  },
+  "homepage": "https://github.com/behnamrhp/all_drag#readme"
 }
