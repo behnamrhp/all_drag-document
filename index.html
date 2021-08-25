@@ -5,12 +5,19 @@
     <title>all drag plugin</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
+
     <link href="assets/bootstrap/bootstrap.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/alertify/alertify.css"/>
+
+    <link rel="stylesheet" href="/assets/alertify/bootstrap.css"/>
+
+
     <script src="assets/bootstrap/bootstrap.js" crossorigin="anonymous"></script>
+    <script src="/assets/alertify/js.js"></script>
 
     <link rel="stylesheet" type="text/css" href="all_drag_style.css"/>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <script defer type="module" src="js/all_drag.js"></script>
+    <script defer type="module" src="index.js"></script>
 
 </head>
 <body>
@@ -45,9 +52,9 @@
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                      aria-labelledby="panelsStayOpen-headingOne">
                     <ul class="ulSideCl">
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">All Drag</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Getting Started</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Installation</a></li>
+                        <li class="liSideCl"><a href="#about" class="btn linkSideCl">All Drag</a></li>
+                        <li class="liSideCl"><a href="#installation" class="btn linkSideCl">Installation</a></li>
+                        <li class="liSideCl"><a href="#getting_started" class="btn linkSideCl">Usage</a></li>
                     </ul>
                 </div>
             </div>
@@ -102,40 +109,87 @@
                     drag such as slide and free drag</p>
             </div>
 
-            <div class="secondary_section usage_getting_started" id="getting_started">
+            <div class="secondary_section usage_getting_started" id="installation">
                 <h3 class="third-head">Installation</h3>
-                <p class="main-text"></p>
-            </div>
-
-            <div class="secondary_section installation" id="installation">
-                <h3 class="third-head">Usage</h3>
                 <div class="third_section">
                     <h4 class="fourth_head">cdn</h4>
-                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
-                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
-                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
+
+                    <a href="javascript:void(0)" class="copyC copy_first"><img src="clipboard.png" alt="clipboard"
+                                                                               class="clipboardImg"></a>
+
+                    <div class="highlight">
+                        <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span
+                                class="linkB p">&lt;</span><span class="linkB nt">link</span> <span class="linkB na">href</span><span
+                                class="linkB o">=</span><span class="linkR s">"https://cdn.jsdelivr.net/npm/all_drag/all_drag_style.css"</span> <span
+                                class="linkB na">rel</span><span class="linkB o">=</span><span class="linkR s">"stylesheet"</span> <span
+                                class="linkB na">crossorigin</span><span class="linkB o">=</span><span class="linkR s">"anonymous"</span><span
+                                class="linkB p">&gt;</span>
+</code></pre>
+
+                        <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span
+                                class="linkB p">&lt;</span><span class="linkB nt">script</span> <span class="linkB na">src</span><span
+                                class="linkB o">=</span><span class="linkR s">"https://cdn.jsdelivr.net/npm/all_drag/all_drag_style.css"</span> <span
+                                class="linkB na">rel</span><span class="linkB o">=</span><span class="linkR s">"stylesheet"</span> <span
+                                class="linkB na">crossorigin</span><span class="linkB o">=</span><span class="linkR s">"anonymous"</span><span
+                                class="linkB p">&gt;</span><span class="linkB p">&lt;</span><span class="linkB nt">/script</span><span
+                                class="linkB p">&gt;</span>
+</code></pre>
+                    </div>
                 </div>
 
                 <div class="third_section">
                     <h4 class="fourth_head">download</h4>
-                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
-                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
-                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
-                </div>
-
+                    <a class="btn btn-primary downloadS" target="_blank"
+                       href=http://www.filedropper.com/all-drag-plugin>source code</a></div>
                 <div class="third_section">
-                    <h4 class="fourth_head">github</h4>
-                    <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto corporis
-                        deleniti dolore dolorum, eligendi ipsam ipsum iure iusto laborum libero minima, molestias
-                        perferendis quibusdam quis reiciendis, saepe sunt ullam voluptatum.</p>
+                    <h4 class="fourth_head">npm</h4>
+                    <a href="javascript:void(0)" class="copyC"><img src="clipboard.png" alt="clipboard"
+                                                                    class="clipboardImg"></a>
+
+                    <div class="highlight">
+                        <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span
+                                class="linkB p">npm i all_drag --save</span>
+</code></pre>
+                    </div>
+                </div>
+                <div class="third_section">
+                    <h4 class="fourth_head" style="    margin-bottom: 2rem;">github</h4>
+                        <a target="_blank" href="https://github.com/behnamrhp/all_drag.git"
+                                                                                                         class="linkB link_custom p">https://github.com/behnamrhp/all_drag.git</a>
+
+                </div>
+            </div>
+
+            <div class="secondary_section installation" id="getting_started">
+                <h3 class="third-head">Usage</h3>
+                <div class="third_section">
+                    <p class="main-text" style="font-size: 1.5rem">
+                        to start and setup an element to all drag plugin we need to:
+                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">import inherit class from plugin</li>
+                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">introduce an div or any element with unique id and send it to create function of plugin.</li>
+                    <br>
+                    <br>
+                    <strong style="font-size: 1.5rem">Note:</strong><span style="font-size: 1.3rem"> for use with panel to drag you should use an element with closing tag</span>
+                    </p>
+                    <a href="javascript:void(0)" class="copyC"><img src="clipboard.png" alt="clipboard"
+                                                                    class="clipboardImg"></a>
+
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="codeB">
+<span class="linkB">import</span>{ALL_DRAG}<span class="linkB"> from</span> "all_drag";</span><br><br><span class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span class="linkG"><'your element id'></span>,<span class="linkR">options</span>);</span>
+</code></pre>
                 </div>
 
+                </div>
             </div>
-        </section>
+
 
 
     </div>
-    <!--end start main-->
+    </section>
+
+
+</div>
+<!--end start main-->
 
 </div>
 
@@ -161,11 +215,20 @@
             this.classList.add('active_link')
         })
     })
+
+    document.querySelectorAll('.copyC').forEach(el => {
+        el.addEventListener('click', function () {
+            const clipBoard = this.parentElement.querySelector('.highlight').textContent.trim();
+
+            navigator.clipboard.writeText(clipBoard);
+            alertify.notify('copied successfully')
+        })
+    })
 </script>
 <script type="module" defer>
-    import {ALL_DRAG} from "./js/all_drag.js";
+    import {ALL_DRAG} from "./index.js";
     // let options = {
-    //     drag_cursor:'grabbing',
+    //     drag_cursor:'grabbing',a
     //     drag_type:{
     //         type:'free',
     //         freeDrag:{
