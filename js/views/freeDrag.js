@@ -39,10 +39,10 @@ class freeDrag extends parent {
             console.error('couldn\'t find any container please choose correct container id')
             return false;
         }
-
         container  = document.querySelector(`#${container}`);
+
         targetEl.style.left = container.getBoundingClientRect().left + 'px';
-        targetEl.style.top = container.getBoundingClientRect().top + 'px';
+        targetEl.style.top = container.offsetTop + 'px';
     }
 
     containerLimitX(targetElem, XPose ){

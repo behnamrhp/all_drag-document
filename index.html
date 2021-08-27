@@ -55,6 +55,7 @@
                         <li class="liSideCl"><a href="#about" class="btn linkSideCl">All Drag</a></li>
                         <li class="liSideCl"><a href="#installation" class="btn linkSideCl">Installation</a></li>
                         <li class="liSideCl"><a href="#getting_started" class="btn linkSideCl">Usage</a></li>
+                        <li class="liSideCl"><a href="#general_options" class="btn linkSideCl">General Options</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,9 +71,9 @@
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                      aria-labelledby="panelsStayOpen-headingTwo">
                     <ul class="ulSideCl">
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Usage</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Options</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Events</a></li>
+                        <li class="liSideCl"><a href="#free_usage" class="btn linkSideCl">Usage</a></li>
+                        <li class="liSideCl"><a href="#free_options" class="btn linkSideCl">Options</a></li>
+                        <li class="liSideCl"><a href="#free_events" class="btn linkSideCl">Events</a></li>
                         <li class="liSideCl"><a href="#" class="btn linkSideCl">Example</a></li>
                     </ul>
                 </div>
@@ -105,7 +106,8 @@
         <section class="section getting_started">
             <div class="secondary_section about" id="about">
                 <h3 class="third-head">All Drag</h3>
-                <p class="main-text about_text">Javascript mobile-friendly plugin provided for you to meet all needs of
+                <p class="main-text about_text">Javascript mobile-friendly small and simple plugin provided for you to
+                    meet all needs of
                     drag such as slide and free drag</p>
             </div>
 
@@ -154,8 +156,8 @@
                 </div>
                 <div class="third_section">
                     <h4 class="fourth_head" style="    margin-bottom: 2rem;">github</h4>
-                        <a target="_blank" href="https://github.com/behnamrhp/all_drag.git"
-                                                                                                         class="linkB link_custom p">https://github.com/behnamrhp/all_drag.git</a>
+                    <a target="_blank" href="https://github.com/behnamrhp/all_drag.git"
+                       class="linkB link_custom p">https://github.com/behnamrhp/all_drag.git</a>
 
                 </div>
             </div>
@@ -164,9 +166,13 @@
                 <h3 class="third-head">Usage</h3>
                 <div class="third_section">
                     <p class="main-text" style="font-size: 1.5rem">
-                        to start and setup an element to all drag plugin we need to:
-                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">import inherit class from plugin</li>
-                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">introduce an div or any element with unique id and send it to create function of plugin.</li>
+                        to start and set up an element to all drag plugin we need to:
+                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">import inherit
+                        class from plugin
+                    </li>
+                    <li style="margin-left: 2rem;font-size: 1.5rem; list-style: -moz-ethiopic-numeric">introduce an div
+                        or any element with unique id and send it to create function of plugin.
+                    </li>
                     <br>
                     <br>
                     <strong style="font-size: 1.5rem">Note:</strong><span style="font-size: 1.3rem"> for use with panel to drag you should use an element with closing tag</span>
@@ -174,18 +180,308 @@
                     <a href="javascript:void(0)" class="copyC"><img src="clipboard.png" alt="clipboard"
                                                                     class="clipboardImg"></a>
 
-                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="codeB">
-<span class="linkB">import</span>{ALL_DRAG}<span class="linkB"> from</span> "all_drag";</span><br><br><span class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span class="linkG"><'your element id'></span>,<span class="linkR">options</span>);</span>
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><span class="codeB">
+<span class="linkB">import</span>{ALL_DRAG}<span class="linkB"> from</span> "all_drag";</span><br><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG"><'your element id'></span>,<span class="linkR">options</span>);</span>
 </code></pre>
-                </div>
+                    </div>
 
                 </div>
             </div>
 
+            <div class="secondary_section installation" id="general_options">
+                <h3 class="third-head">General Options</h3>
+                <div class="third_section">
+                    <h4 class="fourth_head">Usage Example</h4>
 
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG"><'your element id'></span>,<span class="linkR">{
+       <span class="codeB"> drag_cursor:</span>'grabbing',
+       <span class="codeB"> drag_type:{</span>
+           <span class="codeB"> type:</span> 'slide'
+       <span class="codeB">},
+        draggableAllowedNumber:</span>  2,
+       <span class="codeB"> panel: {</span>
+            <span class="codeB">hover_cursor:</span> 'grab',
+            <span class="codeB">panel_height:</span> '30',
+            <span class="codeB">panel_color:</span>  '#adb8ba',
+      <span class="codeB">  },
+        revert: </span>true,
+       <span class="codeB"> transitionDuration:</span> '.7',
+    </span>});</span>
+</code></pre>
+                    </div>
+
+                    <h4 class="fourth_head">Options</h4>
+                    <!--general options table-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Options</th>
+                            <th scope="col">Default</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" colspan="2">drag_type</th>
+                            <td>Object</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>In this object we choose type of drag and other drag options that We will get acquainted
+                                with them in their own sections
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">type</th>
+                            <td>String</td>
+                            <td>free/slide</td>
+                            <td>free</td>
+                            <td>choose the type of drag such as slide or free drag</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_cursor</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>write name style of the cursor on dragging event</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">revert</th>
+                            <td>boolean</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>choose between your element will be return to it first place after stop drag event or
+                                not
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">transitionDuration</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>'.2'</td>
+                            <td>write the number of transition time (revert or close slide drag & ...) per second</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">draggableAllowedNumber</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>0(infinite)</td>
+                            <td>Write how much drag your users are allowed to use</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel</th>
+                            <td>Object</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>in this object, we choose between the below options for panel (in free panel optional to
+                                use)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">hover_cursor</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>auto</td>
+                            <td>write name style of the cursor on panel hover event</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel_color</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>#656565</td>
+                            <td>write your panel color</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel_height</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>15</td>
+                            <td>write your panel height (per px)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel_radius</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>10</td>
+                            <td>panel redius (will be set by direction of panel)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel_hide</th>
+                            <td>Boolean</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>choose is panel will be transparent or not</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <!--end of general options table-->
+
+                </div>
+            </div>
+
+        </section>
+        <section class="section freeDrag">
+            <div class="secondary_section installation" id="free_drag">
+                <h3 class="third-head">Free Drag</h3>
+                <h3 class="fourth_head" id="free_usage">Usage</h3>
+                <div class="third_section">
+                    <p class="main-text" style="font-size: 1.5rem">
+                        to start and set up an element to free drag we need to set type option to 'free' (in drag type
+                        object)
+                        <br>
+                        <br>
+                        <strong style="font-size: 1.5rem">Note:</strong><span style="font-size: 1.3rem"> for use with panel to drag you should use an element with closing tag</span>
+                    </p>
+
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG"><'your element id'></span>,{
+       <span class="codeB"> drag_type:{</span>
+           <span class="codeB"> type:</span> <span class="linkR">'free'</span><span class="codeB">
+            freeDrag: {
+                drag_place:<span class="linkR"> 'self'</span>,
+                ...('other object options')
+             }
+        }
+      });
+
+       </span>
+</code></pre>
+                    </div>
+
+                    <strong style="font-size: 1.5rem">Note:</strong><span style="font-size: 1.3rem">all of the below options should be use in freeDrag object inside of drag_type object</span>
+
+                    <h4 class="fourth_head" id="free_options">Options</h4>
+
+                    <!--general options table-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Options</th>
+                            <th scope="col">Default</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" colspan="2">drag_place</th>
+                            <td>String</td>
+                            <td>self/panel</td>
+                            <td>'self'</td>
+                            <td>choose place, where to drag on drag event (panel or element itSelf)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">panel_side</th>
+                            <td>String</td>
+                            <td>top/left/bottom/right</td>
+                            <td>'top'</td>
+                            <td>if you choose panel in previous option you can set direction of panel to place relation
+                                to element
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_style</th>
+                            <td>String</td>
+                            <td>flat/elevate</td>
+                            <td>'flat'</td>
+                            <td>choose style of element on dragging event between flat or elevate options</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_scale</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>'1.05'</td>
+                            <td>if you choose elevate in previous option you can set scale size of element on drag
+                                event
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_shadow_color</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>'#737373'</td>
+                            <td>if you choose elevate in previous option you can set color of shadow on drag event</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_shadow_blur</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>'5'</td>
+                            <td>if you choose elevate in previous option you can set blur size of shadow on drag event
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_shadow_distance</th>
+                            <td>Number</td>
+                            <td>-</td>
+                            <td>'5'</td>
+                            <td>if you choose elevate in previous option you can set distance of Y direction shadow on
+                                drag event
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">allowedDistrict</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>in this section, if you want to drag the element inside another element you should
+                                insert the name of the second element ID in this option
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--end of general options table-->
+                    <h4 class="fourth_head" id="free_events">Events</h4>
+
+                    <!--general options table-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Name</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" colspan="2">allFreeDragStart</th>
+                            <td>Fired when mouse down</td>
+                        </tr>
+<tr>
+                            <th scope="row" colspan="2">allFreeDragMove</th>
+                            <td>Fired when mouse move on drag</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">allFreeDragStop</th>
+                            <td>Fired when mouse up on drag</td>
+                        </tr>
+
+                    </table>
+                    <!--end of general options table-->
+
+
+                    <h4 class="fourth_head" id="free_example">Example</h4>
+
+                    <div class="example_cont container" id="free_drag_example_cont">
+                        <div class="example_elem_free" id="example_elem_free">&nbsp;</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
     </div>
-    </section>
 
 
 </div>
@@ -227,37 +523,29 @@
 </script>
 <script type="module" defer>
     import {ALL_DRAG} from "./index.js";
-    // let options = {
-    //     drag_cursor:'grabbing',a
-    //     drag_type:{
-    //         type:'free',
-    //         freeDrag:{
-    //             drag_place:'panel',
-    //             panel_side: 'top',
-    //             drag_style:'elevate',
-    //             allowedDistrict: 'cont'
-    //         },
-    //         slideDrag : {
-    //             direction:'top',
-    //             clickToOpen:'button_to_slide',
-    //             resizeToDefaultOnHide : true,
-    //             closePercent: 70,
-    //             percentBasis: 'browser'
-    //         }
-    //
-    //     },
-    //     draggableAllowedNumber: 2,
-    //     panel: {
-    //         hover_cursor:'grab',
-    //         panel_height:'30',
-    //         panel_color: '#adb8ba',
-    //
-    //     },
-    //     revert : true,
-    //     transitionDuration: '.7',
-    //
-    // }
-    // ALL_DRAG.create('drag_el',options);
+    let options = {
+        drag_cursor:'grabbing',
+        drag_type:{
+            type:'free',
+            freeDrag:{
+                drag_place:'self',
+                panel_side: 'top',
+                drag_style:'elevate',
+                allowedDistrict: 'free_drag_example_cont'
+            },
+        },
+        draggableAllowedNumber: 0,
+        panel: {
+            hover_cursor:'grab',
+            panel_height:'30',
+            panel_color: '#adb8ba',
+
+        },
+        revert : false,
+        transitionDuration: '.3',
+
+    }
+    ALL_DRAG.create('example_elem_free',options);
 
     // ALL_DRAG.create('button_to_slide',{
     //     drag_type: {

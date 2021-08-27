@@ -17,9 +17,16 @@
     src: url("fonts/raileway/Raleway-SemiBold.ttf");
 }
 
+.table{
+    margin: 2rem 1rem;
+}
+
 *{
     box-sizing: border-box;
     font-size: 1.5rem;
+}
+tr,td,th{
+    font-size: 1.9rem !important;
 }
 .link_custom{
     margin: 4rem 1rem;
@@ -81,6 +88,8 @@ html{
     font-size: 2.2rem;
     margin: .5rem 0;
 }
+
+
 .sidebar{
     grid-column: slide-start / slide-end;
     position: relative;
@@ -246,12 +255,16 @@ html{
 
 }
 
-#cont{
-    width: 50vw;
-    height: 90vh;
+.example_elem_free{
+    width: 10rem;
+    height: 10rem;
     background: aquamarine;
     position: relative;
     left: 5rem;
+}
+.example_cont{
+    width: 100%;
+    min-height: 40rem;
 }
 
 .language-html{
