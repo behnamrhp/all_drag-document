@@ -15,10 +15,26 @@ class slideDrag extends parent {
         const direction = this._config.drag_type.slideDrag.direction;
 
         //set styles
-        if (direction === 'left') targetElem.style.left = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
-        if (direction === 'right') targetElem.style.right = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
-        if (direction === 'top') targetElem.style.top = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
-        if (direction === 'bottom') targetElem.style.bottom = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
+        if (direction === 'left'){
+            targetElem.style.left = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
+            targetElem.style.top = `${this._config.drag_type.slideDrag.otherDirPos}%`;
+            targetElem.style.right = `unset`;
+        }
+        if (direction === 'right'){
+            targetElem.style.right = `-${targetElem.getBoundingClientRect().width - this._config.panel.panel_height}px`;
+            targetElem.style.top = `${this._config.drag_type.slideDrag.otherDirPos}%`;
+            targetElem.style.left = `unset`;
+        }
+        if (direction === 'top'){
+            targetElem.style.top = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
+            targetElem.style.left = `${this._config.drag_type.slideDrag.otherDirPos}%`;
+            targetElem.style.bottom = `unset`;
+        }
+        if (direction === 'bottom'){
+            targetElem.style.bottom = `-${targetElem.getBoundingClientRect().height - this._config.panel.panel_height}px`;
+            targetElem.style.left = `${this._config.drag_type.slideDrag.otherDirPos}%`;
+            targetElem.style.top = `unset`;
+        }
         this._check_slide_open = false;
 
     }

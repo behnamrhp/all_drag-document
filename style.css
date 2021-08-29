@@ -261,7 +261,22 @@ html{
     background: aquamarine;
     position: relative;
     left: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.example_elem_slide{
+    width: 10rem;
+    height: 20rem;
+    background: aquamarine;
+    position: relative;
+    left: 5rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .example_cont{
     width: 100%;
     min-height: 40rem;

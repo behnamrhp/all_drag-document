@@ -13,10 +13,10 @@ export let config = {
         },
         slideDrag: {
             direction: 'left',
+            otherDirPos: '50',
             closePercent: 50,
             percentBasis: 'self',
             clickToOpen: false,
-            hideStyle: 'panel',
             resizeToDefaultOnHide: false
         }
     },

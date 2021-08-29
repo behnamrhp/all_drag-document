@@ -236,10 +236,7 @@ class all_drag {
         //check default clickToOpen elem div
         if (!usedConf.drag_type.slideDrag.clickToOpen) usedConf.drag_type.slideDrag.clickToOpen = config.drag_type.slideDrag.clickToOpen;
 
-        //check hideStyle elem(panel/hide)
-        if (!usedConf.drag_type.slideDrag.hideStyle) usedConf.drag_type.slideDrag.hideStyle = config.drag_type.slideDrag.hideStyle;
-
-        //check hideStyle elem(panel/hide)
+        //check transitionDuration elem(panel/hide)
         if (!usedConf.drag_type.slideDrag.transitionDuration) usedConf.drag_type.slideDrag.transitionDuration = config.drag_type.slideDrag.transitionDuration;
 
         //check resize to default when hide
@@ -247,6 +244,9 @@ class all_drag {
 
         //check percent basis for close on stop handler
         if (!usedConf.drag_type.slideDrag.percentBasis) usedConf.drag_type.slideDrag.percentBasis = config.drag_type.slideDrag.percentBasis;
+
+        //check percent basis for close on stop handler
+        if (!usedConf.drag_type.slideDrag.otherDirPos) usedConf.drag_type.slideDrag.otherDirPos = config.drag_type.slideDrag.otherDirPos;
 
         return usedConf
     }

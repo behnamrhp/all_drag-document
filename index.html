@@ -74,7 +74,7 @@
                         <li class="liSideCl"><a href="#free_usage" class="btn linkSideCl">Usage</a></li>
                         <li class="liSideCl"><a href="#free_options" class="btn linkSideCl">Options</a></li>
                         <li class="liSideCl"><a href="#free_events" class="btn linkSideCl">Events</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Example</a></li>
+                        <li class="liSideCl"><a href="#free_example" class="btn linkSideCl">Example</a></li>
                     </ul>
                 </div>
             </div>
@@ -89,10 +89,10 @@
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
                      aria-labelledby="panelsStayOpen-headingThree">
                     <ul class="ulSideCl">
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Usage</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Options</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Events</a></li>
-                        <li class="liSideCl"><a href="#" class="btn linkSideCl">Example</a></li>
+                        <li class="liSideCl"><a href="#slide_usage" class="btn linkSideCl">Usage</a></li>
+                        <li class="liSideCl"><a href="#slide_options" class="btn linkSideCl">Options</a></li>
+                        <li class="liSideCl"><a href="#slide_events" class="btn linkSideCl">Events</a></li>
+                        <li class="liSideCl"><a href="#slide_example" class="btn linkSideCl">Example</a></li>
                     </ul>
                 </div>
             </div>
@@ -457,7 +457,7 @@
                             <th scope="row" colspan="2">allFreeDragStart</th>
                             <td>Fired when mouse down</td>
                         </tr>
-<tr>
+                        <tr>
                             <th scope="row" colspan="2">allFreeDragMove</th>
                             <td>Fired when mouse move on drag</td>
                         </tr>
@@ -473,9 +473,200 @@
                     <h4 class="fourth_head" id="free_example">Example</h4>
 
                     <div class="example_cont container" id="free_drag_example_cont">
-                        <div class="example_elem_free" id="example_elem_free">&nbsp;</div>
+                        <div class="example_elem_free" id="example_elem_free">&nbsp; Drag me</div>
                     </div>
 
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG">'example_elem_free'</span>,{
+       <span class="codeB"> drag_type:{</span>
+           <span class="codeB"> type:</span> <span class="linkR">'free'</span><span class="codeB">
+            freeDrag: {
+                drag_place:<span class="linkR"> 'self'</span>,
+                panel_side:<span class="linkR"> 'top'</span>,
+                drag_style:<span class="linkR"> 'elevate'</span>,
+                allowedDistrict:<span class="linkR"> 'free_drag_example_cont'</span>,
+             }
+        draggableAllowedNumber: 0,
+        panel: {
+            hover_cursor: <span class="linkR"> 'grab'</span>,
+            panel_height: <span class="linkR"> '30'</span>,
+            panel_color: <span class="linkR"> '#adb8ba'</span>,
+
+        },
+        revert: <span class="linkR"> false</span>,
+        transitionDuration: <span class="linkR"> '.3'</span>,
+        }
+      });
+
+       </span>
+</code></pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="section slideDrag">
+            <div class="secondary_section installation" id="slide_drag">
+                <h3 class="third-head">Slide Drag</h3>
+                <h3 class="fourth_head" id="slide_usage">Usage</h3>
+                <div class="third_section">
+                    <p class="main-text" style="font-size: 1.5rem">
+                        to start and set up an element for the slide drag we need to set the type option to 'slide' (in drag type
+                        object)
+                        <br>
+                        <br>
+                    </p>
+
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG"><'your element id'></span>,{
+       <span class="codeB"> drag_type:{</span>
+           <span class="codeB"> type:</span> <span class="linkR">'slide'</span><span class="codeB">
+            slideDrag: {
+                direction:<span class="linkR"> 'top'</span>,
+                ...('other object options')
+             }
+        }
+      });
+
+       </span>
+</code></pre>
+                    </div>
+
+                    <strong style="font-size: 1.5rem">Note:</strong><span style="font-size: 1.3rem">all of the below options should be use in slideDrag object inside of drag_type object</span>
+
+                    <h4 class="fourth_head" id="slide_options">Options</h4>
+
+                    <!--general options table-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Name</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Options</th>
+                            <th scope="col">Default</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" colspan="2">direction</th>
+                            <td>String</td>
+                            <td>top/left/right/bottom</td>
+                            <td>'left'</td>
+                            <td>choose where should place the element inside of the screen</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">closePercent</th>
+                            <td>Number</td>
+                            <td>0-100</td>
+                            <td>50</td>
+                            <td>set percent of closing element</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">percentBasis</th>
+                            <td>String</td>
+                            <td>self/browser</td>
+                            <td>'self'</td>
+                            <td>Choose on what basis the closing percentage should be calculated</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">clickToOpen</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>if you set an element id in this option,the slide drag element will be toggle on click this element</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">drag_shadow_color</th>
+                            <td>String</td>
+                            <td>-</td>
+                            <td>'#737373'</td>
+                            <td>if you choose elevate in previous option you can set color of shadow on drag event</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">resizeToDefaultOnHide</th>
+                            <td>Boolean</td>
+                            <td>-</td>
+                            <td>false</td>
+                            <td>if you set this option to true, the slide drag element will be resized to the init size when it closed
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">otherDirPos</th>
+                            <td>Number</td>
+                            <td>0-100</td>
+                            <td>50</td>
+                            <td>this option specify the position of the slide drag element in reverse direction of 'direction' option (it based on %)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!--end of general options table-->
+                    <h4 class="fourth_head" id="slide_events">Events</h4>
+
+                    <!--general options table-->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Name</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" colspan="2">allSlideDragStart</th>
+                            <td>Fired when mouse down</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">allSlideDragMove</th>
+                            <td>Fired when mouse move on drag</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">allSlideDragStop</th>
+                            <td>Fired when mouse up on drag</td>
+                        </tr>
+
+                    </table>
+                    <!--end of general options table-->
+
+
+                    <h4 class="fourth_head" id="slide_example">Example</h4>
+                    <strong style="font-size: 1.5rem">Note: </strong><span style="font-size: 1.3rem">to see the example of the slide drag element, drag the element in the right side of the screen</span>
+                        <div class="example_elem_slide" id="example_elem_slide">&nbsp; Drag me</div>
+                    </div>
+
+                    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html"
+                                                                                  data-lang="html"><br><span
+                            class="codeB"><span class="linkB">ALL_DRAG</span>.<span class="linkR">create</span>(<span
+                            class="linkG">'example_elem_slide'</span>,{
+       <span class="codeB"> drag_type:{</span>
+           <span class="codeB"> type:</span> <span class="linkR">'slide'</span><span class="codeB">
+            slideDrag: {
+                direction:<span class="linkR"> 'right'</span>,
+                closePercent:<span class="linkR"> 50</span>,
+                percentBasis:<span class="linkR"> 'browser'</span>,
+                clickToOpen:<span class="linkR"> false</span>,
+                resizeToDefaultOnHide:<span class="linkR"> true</span>,
+                otherDirPos:<span class="linkR"> '35'</span>,
+             }
+        draggableAllowedNumber: 0,
+        panel: {
+            hover_cursor: <span class="linkR"> 'grab'</span>,
+            panel_height: <span class="linkR"> '30'</span>,
+            panel_color: <span class="linkR"> '#adb8ba'</span>,
+
+        },
+        revert: <span class="linkR"> false</span>,
+        transitionDuration: <span class="linkR"> '.3'</span>,
+        }
+      });
+
+       </span>
+</code></pre>
+                    </div>
                 </div>
 
             </div>
@@ -523,60 +714,56 @@
 </script>
 <script type="module" defer>
     import {ALL_DRAG} from "./index.js";
+
     let options = {
-        drag_cursor:'grabbing',
-        drag_type:{
-            type:'free',
-            freeDrag:{
-                drag_place:'self',
+        drag_cursor: 'grabbing',
+        drag_type: {
+            type: 'free',
+            freeDrag: {
+                drag_place: 'self',
                 panel_side: 'top',
-                drag_style:'elevate',
+                drag_style: 'elevate',
                 allowedDistrict: 'free_drag_example_cont'
             },
         },
         draggableAllowedNumber: 0,
         panel: {
-            hover_cursor:'grab',
-            panel_height:'30',
+            hover_cursor: 'grab',
+            panel_height: '30',
             panel_color: '#adb8ba',
 
         },
-        revert : false,
+        revert: false,
         transitionDuration: '.3',
 
     }
-    ALL_DRAG.create('example_elem_free',options);
 
-    // ALL_DRAG.create('button_to_slide',{
-    //     drag_type: {
-    //         type:'free',
-    //         freeDrag:{
-    //             drag_place: 'panel',
-    //             panel_side: 'top',
-    //             drag_style: 'elevate',
-    //             drag_shadow_color: '#fff',
-    //             drag_shadow_blur: '10',
-    //             drag_shadow_distance:'20',
-    //             allowedDistrict:'cont',
-    //         }
-    //     },
-    //     drag_cursor: 'pointer',
-    //     revert:true,
-    //     transitionDuration: '.5',
-    //     draggableAllowedNumber:2,
-    //     panel: {
-    //         hover_cursor:'move',
-    //         panel_color:'blue',
-    //         panel_height:'20',
-    //         panel_radius:'10',
-    //         panel_hide:true
-    //     }
-    //
-    // })
+    ALL_DRAG.create('example_elem_free', options);
+ let sOptions = {
+        drag_cursor: 'grabbing',
+        drag_type: {
+            type: 'slide',
+            slideDrag: {
+                direction: 'right',
+                closePercent: 50,
+                percentBasis: 'browser',
+                clickToOpen: false,
+                otherDirPos: '35',
+                resizeToDefaultOnHide: true
+            }
+        },
+        draggableAllowedNumber: 0,
+        panel: {
+            hover_cursor: 'grab',
+            panel_height: '30',
+            panel_color: '#adb8ba',
+        },
+        revert: false,
+        transitionDuration: '.3',
 
-    // document.getElementById('button_to_slide').addEventListener('allFreeDragStop',function(e){
-    //     console.log(e);
-    // })
+    }
+    ALL_DRAG.create('example_elem_slide', sOptions);
+
 </script>
 </body>
 </html>

@@ -40,6 +40,7 @@ class freeDrag extends parent {
             return false;
         }
         container  = document.querySelector(`#${container}`);
+        container.style.position = 'unset';
 
         targetEl.style.left = container.offsetLeft + 'px';
         targetEl.style.top = container.offsetTop + 'px';
